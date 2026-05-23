@@ -1,0 +1,91 @@
+/* Reset & Base Styles */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #000000;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* Modules Left */
+#workspaces button {
+    padding: 0 10px;
+    background-color: transparent;
+    color: #888888; /* Dimmed white/gray for inactive */
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    color: #ffffff;
+    background-color: transparent; /* Inverted for active workspace */
+}
+
+#workspaces button.urgent {
+    background-color: #d21111;
+    color: #000000;
+    animation: blink 0.5s alternate infinite;
+}
+
+/* Modules Layout styling */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#volume,
+#pulseaudio,
+#network,
+#tray,
+#mode,
+#submap {
+    padding: 0 12px;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+/* Subtle separators between right modules */
+#pulseaudio, #network, #cpu, #memory, #battery {
+    border-left: 0.5px solid #171717; /* Dark gray separator to keep it clean */
+}
+
+/* Battery Warning States */
+#battery.warning {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #d21111;
+    color: #000000;
+    animation: blink 0.5s alternate infinite;
+}
+
+/* Tray styling */
+#tray {
+    background-color: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #d21111;
+}
+
+/* Animations */
+@keyframes blink {
+    to {
+        background-color: #000000;
+        color: #ffffff;
+    }
+}

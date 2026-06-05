@@ -13,7 +13,7 @@ window#waybar {
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
-}
+} jubilee
 
 /* Modules Left */
 #workspaces button {
@@ -43,7 +43,8 @@ window#waybar {
 #volume,
 #pulseaudio,
 #network,
-#tray,
+#drawer,
+#custom-notification,
 #mode,
 #submap {
     padding: 0 12px;
@@ -52,8 +53,8 @@ window#waybar {
 }
 
 /* Subtle separators between right modules */
-#pulseaudio, #network, #cpu, #memory, #battery {
-    border-left: 0.5px solid #171717; /* Dark gray separator to keep it clean */
+#pulseaudio, #network, #cpu, #memory, #battery, #custom-notification, #drawer {
+    border-left: 0px solid #000000; /* Dark gray separator to keep it clean */
 }
 
 /* Battery Warning States */
@@ -68,9 +69,24 @@ window#waybar {
     animation: blink 0.5s alternate infinite;
 }
 
-/* Tray styling */
+/* Notification Module Adjustments */
+#custom-notification {
+    font-size: 15px; /* Boost icon scale slightly */
+}
+
+/* Collapsible Tray Layout & Logic */
+#custom-tray-icon {
+    padding-right: 4px;
+    color: #888888;
+}
+
+#drawer:hover #custom-tray-icon {
+    color: #ffffff;
+}
+
 #tray {
     background-color: transparent;
+    padding-left: 4px;
 }
 
 #tray > .passive {
